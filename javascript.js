@@ -8,7 +8,11 @@ let myLibrary = [];
 
 
 function addBookToLibrary() {
-    
+    let title = document.getElementById("title").value;
+    let author = document.getElementById("author").value;
+    let read = Boolean.parseBoolean(document.getElementsByName("read").value);
+
+    alert(title + author + read);
     form.classList.toggle("form-hidden");
 }
 

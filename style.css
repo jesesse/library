@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin: auto;
+    width: 75vw;
+    height: 90vh;
+    border: solid 1px red;
+}
+
+
+.library {
+    display: grid;
+    border: 1px solid brown;
+}
+
+.library-hidden {
+    display: none;
+}
+
+
+form {
+    width: 500px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30%;
+    margin: auto;
+    padding: 50px;
+    background-color: rgb(53, 51, 48);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.form-hidden {
+    display: none;
+}
+
+form div {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+form button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(5, 64, 5);
+}
+
+button {
+   align-self: center;
+}
+
+

@@ -13,7 +13,9 @@ function Book (title, author, read) {
 }
 
 Book.prototype.toggleRead = function() {
-    alert(this.title);
+    if (this.read == "READ") this.read = "NOT YET READ"
+    else this.read = "READ";
+    displayLibrary();
 }
 
 
@@ -21,7 +23,7 @@ function addBookToLibrary() {
     let title = document.getElementById("title").value;
     let author = document.getElementById("author").value;
     let read;
-    if (document.getElementById("read").cheched) read = "READ"
+    if (document.getElementById("read").checked) read = "READ"
     else read = "NOT YET READ";
 
     let newBook = new Book(title, author, read);
@@ -35,6 +37,7 @@ function addBookToLibrary() {
 
 
 function displayLibrary() {
+
     if (library.classList.contains("library-hidden")) library.classList.toggle("library-hidden");
 
     while (library.lastChild) library.removeChild(library.lastChild);
@@ -47,14 +50,21 @@ function displayLibrary() {
         newBookCard.textContent += `AUTHOR: ${myLibrary[i].author} \n \n`;
         newBookCard.textContent += `${myLibrary[i].read} \n \n`;
 
+        let toggleReadBtn = newBookCard.appendChild(document.createElement('button'));
+        toggleReadBtn.textContent = 'TOGGLE READ';
+        toggleReadBtn.addEventListener("click", toggleReadLaunch);
+
+
         let removeBtn = newBookCard.appendChild(document.createElement('button'));
-
         removeBtn.textContent = 'REMOVE BOOK';
-
         removeBtn.addEventListener("click", removeBook);
 
         library.appendChild(newBookCard);
     }
+}
+
+function toggleReadLaunch() {
+    myLibrary[this.parentNode.getAttribute('id')].toggleRead();
 }
 
 function removeBook() {

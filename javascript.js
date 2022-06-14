@@ -6,14 +6,60 @@ const form = document.querySelector("form");
 
 let myLibrary = [];
 
+function Book (title, author, read) {
+    this.title = title;
+    this.author = author;
+    this.read = read;
+}
+
+Book.prototype.toggleRead = function() {
+    alert(this.title);
+}
+
 
 function addBookToLibrary() {
     let title = document.getElementById("title").value;
     let author = document.getElementById("author").value;
-    let read = Boolean.parseBoolean(document.getElementsByName("read").value);
+    let read;
+    if (document.getElementById("read").cheched) read = "READ"
+    else read = "NOT YET READ";
 
-    alert(title + author + read);
+    let newBook = new Book(title, author, read);
+    myLibrary.push(newBook);
+
     form.classList.toggle("form-hidden");
+
+    displayLibrary();
+}
+
+
+
+function displayLibrary() {
+    if (library.classList.contains("library-hidden")) library.classList.toggle("library-hidden");
+
+    while (library.lastChild) library.removeChild(library.lastChild);
+
+    for (i = 0; i < myLibrary.length; i++){
+        let newBookCard = document.createElement('div');
+        newBookCard.classList.add('book-card');
+        newBookCard.setAttribute('id', i);
+        newBookCard.textContent += `TITLE: ${myLibrary[i].title} \n \n`;
+        newBookCard.textContent += `AUTHOR: ${myLibrary[i].author} \n \n`;
+        newBookCard.textContent += `${myLibrary[i].read} \n \n`;
+
+        let removeBtn = newBookCard.appendChild(document.createElement('button'));
+
+        removeBtn.textContent = 'REMOVE BOOK';
+
+        removeBtn.addEventListener("click", removeBook);
+
+        library.appendChild(newBookCard);
+    }
+}
+
+function removeBook() {
+    myLibrary.splice(this.parentNode.getAttribute('id'), 1);
+    displayLibrary();
 }
 
 

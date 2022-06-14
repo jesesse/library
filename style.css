@@ -11,11 +11,16 @@
 
 .library {
     display: grid;
+    grid-template-columns: repeat(5, 300px);
     border: 1px solid brown;
 }
 
 .library-hidden {
     display: none;
+}
+
+.book-card {
+    white-space: break-spaces;
 }
 
 

@@ -1,22 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
+* {
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+}
+
+body {
+    color: white;
+    background-color: rgb(52, 46, 46);
+}
+
 .container {
     display: flex;
     flex-flow: column;
+    gap: 20px;
     justify-content: center;
+    align-items: center;
     margin: auto;
+    margin-top: 50px;
     width: 75vw;
-    height: 90vh;
-    border: solid 1px red;
+    height: 70vh;
+}
+
+.container button {
+    width: 50%;
 }
 
 
 .library {
+    box-sizing: border-box;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 317px);
+    grid-template-columns: repeat(auto-fit, 400px);
+    grid-template-rows: auto;
     overflow: auto;
-    gap: 20px;
-    
-    padding: 20px;
-    border: 1px solid brown;
+    gap: 50px;
+    width: inherit;
+    padding: 30px;
+    background-color: rgb(45, 22, 17);
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 20px;
 }
 
 .library-hidden {
@@ -24,12 +46,31 @@
 }
 
 .book-card {
-    
-    border: 1px solid red;
+    font-size: 1.3rem;
+    border: 1px solid rgb(0, 0, 0);
     padding: 20px;
-    background-color: rgb(49, 37, 23);
+    background-color: rgb(59, 43, 33);
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px black;
     white-space: break-spaces;
 }
+
+.book-card div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-card button {
+    background-color: rgb(215, 196, 171);
+    width: 120px;
+    box-shadow: 0px 0px 5px black;
+}
+
+.book-card button:last-child {
+    background-color: rgb(161, 36, 36);
+}
+
+
 
 
 form {
@@ -54,19 +95,11 @@ form div {
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
-form button {
-    padding: 10px;
-    border-radius: 10px;
-    background-color: rgb(5, 64, 5);
-}
 
 button {
-   padding: 10px;
-   border-radius: 10px;
-   margin: 0px 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: none;
 }
-
-

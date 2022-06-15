@@ -20,22 +20,25 @@
 
         </div>
 
-        <form class="form-hidden" action="">
+        <form class="form-hidden" action="#" method="post">
             <div>
-                <label for="title">TITLE:</label>
-                <input type="text" name="" id="title">
+                <label for="title">TITLE: </label>
+                <input type="text" name="title" id="title" required>
             </div>
             <div>
-                <label for="">AUTHOR:</label>
-                <input type="text" name="" id="author">
+                <label for="author">AUTHOR: </label>
+                <input type="text" name="author" id="author" required>
             </div>
             <div>
-                <input type="checkbox" name="read" id="read">
                 <label for="read">READ</label>
+                <input type="checkbox" name="read" id="read">
+                
             </div>
 
-            <button class="addBtn" type="button">ADD +</button>
+            <button type="button" class="addBtn">ADD +</button>
+            
         </form>
+        
 
  
 

@@ -19,13 +19,18 @@ body {
     margin: auto;
     margin-top: 50px;
     width: 75vw;
-    height: 70vh;
+    height: 80vh;
 }
 
 .container button {
     width: 50%;
 }
 
+
+@keyframes example {
+    from {display: none;}
+    to {display: grid;}
+  }
 
 .library {
     box-sizing: border-box;
@@ -42,10 +47,13 @@ body {
 }
 
 .library-hidden {
+
     display: none;
+    
 }
 
 .book-card {
+    
     font-size: 1.3rem;
     border: 1px solid rgb(0, 0, 0);
     padding: 20px;
@@ -74,6 +82,10 @@ body {
 
 
 form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 20px;
     width: 500px;
     position: absolute;
     left: 0;
@@ -82,8 +94,8 @@ form {
     margin: auto;
     padding: 50px;
     background-color: rgb(53, 51, 48);
+    border: 2px solid black;
     border-radius: 20px;
-    text-align: center;
 }
 
 .form-hidden {
@@ -91,10 +103,14 @@ form {
 }
 
 form div {
-    margin: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 15px;
+}
+
+form label {
+    width: 60px;
+    text-align: end;
 }
 
 

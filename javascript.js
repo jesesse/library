@@ -46,27 +46,7 @@ function displayLibrary() {
     while (library.lastChild) library.removeChild(library.lastChild);
 
     for (i = 0; i < myLibrary.length; i++) {
-        //Tän kaiken vois tehä omassa aliohjelmassaan
-        //createBookCard(myLibrary[i])
-
-        let newBookCard = document.createElement('div');
-        newBookCard.classList.add('book-card');
-        newBookCard.setAttribute('id', i);
-        newBookCard.textContent += `TITLE:  ${myLibrary[i].title} \n \n`;
-        newBookCard.textContent += `AUTHOR:  ${myLibrary[i].author} \n \n`;
-        newBookCard.textContent += `${myLibrary[i].read} \n \n`;
-
-        let cardButtonContainer = newBookCard.appendChild(document.createElement('div'));
-
-        let toggleReadBtn = cardButtonContainer.appendChild(document.createElement('button'));
-        toggleReadBtn.textContent = 'TOGGLE READ';
-        toggleReadBtn.addEventListener("click", toggleReadLaunch);
-
-        let removeBtn = cardButtonContainer.appendChild(document.createElement('button'));
-        removeBtn.textContent = 'REMOVE BOOK';
-        removeBtn.addEventListener("click", removeBook);
-
-        library.appendChild(newBookCard);
+        createBookCard(myLibrary[i])
     }
 
     if (myLibrary.length == 0) {
@@ -77,23 +57,44 @@ function displayLibrary() {
     }
 }
 
-/*
+
 function createBookCard (book) {
     const newBookCard = document.createElement('div');
     const title = document.createElement('p');
     const author = document.createElement('p');
+    const read = document.createElement('p');
     const buttonConainer = document.createElement('div');
-    const removeButton = document.createElement('button');
+    const removeBtn = document.createElement('button');
     const toggleReadBtn = document.createElement('button');
+
+    newBookCard.classList.add('book-card');
+    newBookCard.setAttribute('id', myLibrary.indexOf(book));
+
+    title.textContent = "TITLE: " + book.title;
+    author.textContent = "AUTHOR: " + book.author
+    read.textContent = book.read;
+    
+    toggleReadBtn.textContent = 'TOGGLE READ';
+    toggleReadBtn.addEventListener("click", toggleReadLaunch);
+
+    removeBtn.textContent = 'REMOVE BOOK';
+    removeBtn.addEventListener("click", removeBook);
+
+    buttonConainer.appendChild(toggleReadBtn);
+    buttonConainer.appendChild(removeBtn);
+    newBookCard.appendChild(title);
+    newBookCard.appendChild(author);
+    newBookCard.appendChild(read);
+    newBookCard.append(buttonConainer);
+    library.appendChild(newBookCard);
 }
-*/
+
 
 function toggleReadLaunch() {
     myLibrary[this.parentNode.parentNode.getAttribute('id')].toggleRead();
 }
 
 function removeBook() {
-
     myLibrary.splice(this.parentNode.parentNode.getAttribute('id'), 1);
     displayLibrary();
 }

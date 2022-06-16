@@ -75,10 +75,15 @@ function createBookCard (book) {
     read.textContent = book.read;
     
     toggleReadBtn.textContent = 'TOGGLE READ';
-    toggleReadBtn.addEventListener("click", toggleReadLaunch);
+    toggleReadBtn.addEventListener("click", () => {
+        book.toggleRead();
+    });
 
     removeBtn.textContent = 'REMOVE BOOK';
-    removeBtn.addEventListener("click", removeBook);
+    removeBtn.addEventListener("click", () => {
+        myLibrary.splice(myLibrary.indexOf(book), 1);
+        displayLibrary();
+    });
 
     buttonConainer.appendChild(toggleReadBtn);
     buttonConainer.appendChild(removeBtn);
@@ -87,16 +92,6 @@ function createBookCard (book) {
     newBookCard.appendChild(read);
     newBookCard.append(buttonConainer);
     library.appendChild(newBookCard);
-}
-
-
-function toggleReadLaunch() {
-    myLibrary[this.parentNode.parentNode.getAttribute('id')].toggleRead();
-}
-
-function removeBook() {
-    myLibrary.splice(this.parentNode.parentNode.getAttribute('id'), 1);
-    displayLibrary();
 }
 
 

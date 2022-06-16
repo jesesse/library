@@ -23,14 +23,16 @@ body {
 }
 
 .container button {
-    width: 50%;
+    width: 30%;
+    background-color: rgb(210, 210, 210);
+}
+
+.container .open-form {
+    background-color: rgba(0, 128, 0, 0.687);
+    
 }
 
 
-@keyframes example {
-    from {display: none;}
-    to {display: grid;}
-  }
 
 .library {
     box-sizing: border-box;
@@ -77,9 +79,6 @@ body {
 .book-card button:last-child {
     background-color: rgb(161, 36, 36);
 }
-
-
-
 
 form {
     display: flex;
